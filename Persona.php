@@ -7,7 +7,7 @@ class Persona
     public $name;
     public $age;
 
-    public function __construct(string $name, int $age)
+    public function __construct(string $name, $age)
     {
         $this->name = $name;
         $this->age = $age;
@@ -16,16 +16,16 @@ class Persona
     {
         if (!is_int($age)) {
             throw new Exception('l\'eta deve essere un intero');
+        } else {
+            $this->age = $age;
         }
-        return $age;
     }
 }
-
-
+$persona = new Persona('Anna', 'ciao');
 try {
-    $persona = new Persona('Anna', '15');
-    echo 'Name' . $persona->name . 'Eta' . $persona->age;
+    $persona->setAge('Anna');
 } catch (Exception $e) {
-    echo 'Errore' . $e->setAge();
+    echo 'Errore' . $e->getMessage();
 }
+
 ?>
