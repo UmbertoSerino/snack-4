@@ -16,4 +16,6 @@ require_once __DIR__ . '/Persona.php'
     <p> <?php echo $persona->age ?> </p>
 </body>
 
+<?php var_dump($persona) ?>
+
 </html>

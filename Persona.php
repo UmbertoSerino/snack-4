@@ -12,15 +12,20 @@ class Persona
         $this->name = $name;
         $this->age = $age;
     }
-}
-
-public function setAge(){
-    throw new Exception('l\'eta deve essere un intero')
+    public function setAge($age)
+    {
+        if (!is_int($age)) {
+            throw new Exception('l\'eta deve essere un intero');
+        }
+        return $age;
+    }
 }
 
 
 try {
-    $persona = new Persona('Anna', 15);
+    $persona = new Persona('Anna', '15');
     echo 'Name' . $persona->name . 'Eta' . $persona->age;
+} catch (Exception $e) {
+    echo 'Errore' . $e->setAge();
 }
 ?>
